@@ -4,11 +4,108 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>内容管理 · 科技后台</title>
-  <!-- 引入自定义后台样式 -->
-  <link rel="stylesheet" href="/admin/admin-style.css" />
+  <style>
+    /* ===== Decap CMS 暗黑科技感后台（内嵌版） ===== */
+    :root {
+      --bg-primary: #0c0c12;
+      --bg-secondary: #16161f;
+      --border-color: #2a2a3c;
+      --accent: #00f2fe;
+      --accent2: #4facfe;
+      --text-primary: #e0e0f0;
+      --text-secondary: #9d9dbd;
+      --danger: #ff5e7e;
+      --radius: 8px;
+    }
+
+    body, [class*="Pane"], [class*="AppMain"], [class*="StyledAuthenticationPage"] {
+      background-color: var(--bg-primary) !important;
+      color: var(--text-primary) !important;
+      font-family: 'Inter', 'Segoe UI', 'PingFang SC', sans-serif !important;
+    }
+
+    [class*="Sidebar"], [class*="AppSidebar"] {
+      background-color: var(--bg-secondary) !important;
+      border-right: 1px solid var(--border-color) !important;
+    }
+
+    [class*="AppBar"], [class*="AppHeader"] {
+      background-color: var(--bg-secondary) !important;
+      border-bottom: 1px solid var(--border-color) !important;
+    }
+
+    [class*="Card"], [class*="Pane"], [class*="ControlPane"], [class*="Editor"] {
+      background-color: var(--bg-secondary) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: 0 4px 20px rgba(0, 242, 254, 0.05) !important;
+    }
+
+    input, textarea, select, [class*="TextInput"], [class*="TextArea"], [class*="SelectContainer"] {
+      background-color: #1a1a28 !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-primary) !important;
+      border-radius: 6px !important;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 8px rgba(0, 242, 254, 0.3) !important;
+      outline: none !important;
+    }
+
+    button, [class*="Button"], [class*="btn"] {
+      background-color: #1f1f2e !important;
+      border: 1px solid var(--border-color) !important;
+      color: var(--text-primary) !important;
+      border-radius: 20px !important;
+      padding: 6px 16px !important;
+      transition: all 0.2s !important;
+    }
+
+    button:hover, [class*="Button"]:hover {
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.25) !important;
+    }
+
+    [class*="ButtonPrimary"], [class*="PublishButton"] {
+      background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
+      border: none !important;
+      color: #000 !important;
+      font-weight: bold !important;
+    }
+
+    label, [class*="FieldLabel"] {
+      color: var(--text-secondary) !important;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    [class*="ListCard"], [class*="ListItem"] {
+      background-color: #1a1a28 !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius) !important;
+      margin-bottom: 8px !important;
+    }
+
+    [class*="SidebarLink"], [class*="NavLink"] {
+      color: var(--text-secondary) !important;
+    }
+
+    [class*="SidebarLink"]:hover, [class*="ActiveNavLink"] {
+      color: var(--accent) !important;
+      background: rgba(0, 242, 254, 0.05) !important;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent2); }
+  </style>
 </head>
 <body>
-  <!-- CMS 脚本 -->
   <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 </body>
 </html>
