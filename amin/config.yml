@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets"
+public_folder: "/assets"
+
+collections:
+  - name: "works"
+    label: "作品"
+    editor:
+      preview: false
+    files:
+      - label: "作品集数据"
+        name: "works_data"
+        file: "works.json"
+        fields:
+          - label: "作品列表"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - {label: "标题", name: "title", widget: string}
+              - {label: "描述", name: "description", widget: text, required: false}
+              - label: "分类"
+                name: "category"
+                widget: select
+                options:
+                  - {label: "3D 角色", value: "character"}
+                  - {label: "3D 场景", value: "scene"}
+                  - {label: "视频展示", value: "video"}
+                  - {label: "可下载资源", value: "download"}
+              - {label: "封面图", name: "thumbnail", widget: image, required: false}
+              - label: "作品图片集"
+                name: "images"
+                widget: list
+                required: false
+                field: {label: "图片", name: "image", widget: image}
+              - label: "视频链接"
+                name: "video_url"
+                widget: string
+                required: false
+                hint: "直接粘贴视频文件路径或外部链接"
+              - label: "下载文件"
+                name: "download_file"
+                widget: file
+                required: false
+                hint: "上传 .blend / .zip 等文件"

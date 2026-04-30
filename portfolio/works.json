@@ -1,0 +1,44 @@
+[
+  {
+    "title": "赛博朋克角色渲染",
+    "description": "Blender Cycles 渲染，三辅二流程，后期在 Photoshop 中调色。",
+    "category": "character",
+    "thumbnail": "https://via.placeholder.com/600x400/0a0a0f/00f2fe?text=Cyberpunk+Character",
+    "images": [
+      "https://via.placeholder.com/800x600/111122/00f2fe?text=Render+01",
+      "https://via.placeholder.com/800x600/221133/4facfe?text=Render+02"
+    ],
+    "video_url": "",
+    "download_file": ""
+  },
+  {
+    "title": "森林废墟场景",
+    "description": "UE5 风格化场景练习，使用 Blender 建模，SP 贴图。",
+    "category": "scene",
+    "thumbnail": "https://via.placeholder.com/600x400/0a0a0f/4facfe?text=Forest+Scene",
+    "images": [
+      "https://via.placeholder.com/800x600/112233/4facfe?text=Scene+01",
+      "https://via.placeholder.com/800x600/223344/00f2fe?text=Scene+02"
+    ],
+    "video_url": "",
+    "download_file": ""
+  },
+  {
+    "title": "角色动画展示",
+    "description": "女战士连击动画，在 Blender 中手k关键帧。",
+    "category": "video",
+    "thumbnail": "https://via.placeholder.com/600x400/0a0a0f/ffaa00?text=Animation+Video",
+    "images": [],
+    "video_url": "https://www.w3schools.com/html/mov_bbb.mp4",
+    "download_file": ""
+  },
+  {
+    "title": "Blender 工程文件下载",
+    "description": "包含完整的模型、材质、灯光设置，适合学习参考。",
+    "category": "download",
+    "thumbnail": "https://via.placeholder.com/600x400/0a0a0f/ffffff?text=Download+Pack",
+    "images": [],
+    "video_url": "",
+    "download_file": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+  }
+]

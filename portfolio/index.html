@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio · 作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href=" " class="nav-logo">PORTFOLIO</a >
+    </div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link active">全部作品</a >
+      <a href="characters.html" class="nav-link">3D 角色</a >
+      <a href="scenes.html" class="nav-link">3D 场景</a >
+      <button id="settings-btn" class="nav-link settings-btn" title="更多选项">⚙️</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="intro">
+      <h1 class="neon-text">PORTFOLIO</h1>
+      <p class="sub">Blender · 角色 · 场景 · 视频</p >
+      <p class="about-text">
+        你好，我是 <strong>你的名字</strong>，一名 3D 爱好者，专注于 Blender 建模与渲染。<br>
+        这里是我的作品陈列室，欢迎观看、下载和交流。
+      </p >
+    </section>
+
+    <div class="filter-bar" id="filter-bar">
+      <button class="filter-btn active" data-filter="all">全部作品</button>
+      <button class="filter-btn" data-filter="character">3D 角色</button>
+      <button class="filter-btn" data-filter="scene">3D 场景</button>
+      <button class="filter-btn" data-filter="video">视频展示</button>
+      <button class="filter-btn" data-filter="download">可下载资源</button>
+    </div>
+
+    <div class="jump-buttons">
+      <a href="characters.html" class="jump-btn">🔹 查看全部 3D 角色</a >
+      <a href="scenes.html" class="jump-btn">🔹 查看全部 3D 场景</a >
+    </div>
+
+    <div id="works-grid" class="works-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Your Name · 由 Netlify 驱动</p >
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-media" id="modal-media"></div>
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p >
+      <div id="modal-download"></div>
+      <div class="modal-nav">
+        <button id="prev-media">←</button>
+        <span id="media-counter"></span>
+        <button id="next-media">→</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settings-modal" class="modal" style="display:none;">
+    <div class="modal-content" style="max-width:400px;">
+      <span class="close-settings" style="position:absolute;top:15px;right:20px;font-size:2rem;cursor:pointer;color:#ccc;">&times;</span>
+      <h2 style="color:var(--neon);">设置 & 联系</h2>
+      <p style="color:#aaa;margin-top:1rem;">📧 邮箱：your@email.com</p >
+      <p style="color:#aaa;">💬 微信：your_wechat</p >
+      <p style="color:#aaa;">🔗 <a href="#" style="color:var(--neon2);">ArtStation</a ></p >
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.getElementById('settings-btn').addEventListener('click', () => {
+      document.getElementById('settings-modal').style.display = 'flex';
+    });
+    document.querySelector('.close-settings').addEventListener('click', () => {
+      document.getElementById('settings-modal').style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('settings-modal')) {
+        document.getElementById('settings-modal').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

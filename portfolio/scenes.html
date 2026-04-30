@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D 场景 · Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <nav class="navbar">
+    <div class="nav-left"><a href=" " class="nav-logo">PORTFOLIO</a ></div>
+    <div class="nav-right">
+      <a href="index.html" class="nav-link">全部作品</a >
+      <a href="characters.html" class="nav-link">3D 角色</a >
+      <a href="scenes.html" class="nav-link active">3D 场景</a >
+    </div>
+  </nav>
+
+  <main style="position:relative; z-index:1; padding:2rem 3rem;">
+    <h2 style="text-align:center; color:var(--neon); font-size:2rem; margin-bottom:2rem;">3D 场景</h2>
+    <div id="works-grid" class="works-grid"></div>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-media" id="modal-media"></div>
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p >
+      <div id="modal-download"></div>
+    </div>
+  </div>
+
+  <script>
+    fetch('works.json')
+      .then(res => res.json())
+      .then(data => {
+        const filtered = data.filter(item => item.category === 'scene');
+        renderPage(filtered);
+      });
+
+    function renderPage(items) {
+      const grid = document.getElementById('works-grid');
+      grid.innerHTML = items.map((work, idx) => {
+        const img = work.thumbnail || (work.images && work.images[0]) || '';
+        return `
+          <div class="work-card" data-index="${idx}">
+            ${img ? `< img class="card-img" src="${img}" alt="${work.title}">` : ''}
+            <div class="card-body">
+              <h3>${work.title}</h3>
+              <p class="card-desc">${work.description || ''}</p >
+              <span class="card-tag">3D 场景</span>
+            </div>
+          </div>`;
+      }).join('');
+
+      document.querySelectorAll('.work-card').forEach((card, i) => {
+        card.addEventListener('click', () => openModal(items[i]));
+      });
+    }
+
+    function openModal(work) {
+      document.getElementById('modal-title').textContent = work.title;
+      document.getElementById('modal-desc').textContent = work.description || '';
+      const mediaDiv = document.getElementById('modal-media');
+      if (work.video_url) {
+        mediaDiv.innerHTML = `<video controls src="${work.video_url}"></video>`;
+      } else if (work.images && work.images.length > 0) {
+        mediaDiv.innerHTML = `< img src="${work.images[0]}" alt="">`;
+      } else {
+        mediaDiv.innerHTML = '';
+      }
+      document.getElementById('modal-download').innerHTML = work.download_file
+        ? `<a href="${work.download_file}" target="_blank">⬇ 下载文件</a >` : '';
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('modal').style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('modal')) document.getElementById('modal').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
